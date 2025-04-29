@@ -1,0 +1,181 @@
+
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { BellRing, MessageCircle, Shield } from "lucide-react";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { useToast } from "@/hooks/use-toast";
+
+interface Solution {
+  id: number;
+  title: string;
+  description: string;
+  features: string[];
+  price: string;
+  icon: React.ElementType;
+  color: string;
+}
+
+const solutions: Solution[] = [
+  {
+    id: 1,
+    title: "SafeGuard Alarm",
+    description: "Un dispositivo anti-stress con allarme e condivisione della posizione che può essere attivato quando ti senti in pericolo.",
+    features: [
+      "Allarme ad alto volume (120dB)",
+      "Condivisione istantanea della posizione",
+      "Design discreto e alla moda",
+      "Batteria di lunga durata"
+    ],
+    price: "49 EUR",
+    icon: BellRing,
+    color: "primary"
+  },
+  {
+    id: 2,
+    title: "AmicoAI App",
+    description: "Un'app AI con cui parli come fossi al telefono che può chiamare soccorsi e inviare la tua posizione.",
+    features: [
+      "Simulazione di chiamata realistica",
+      "Attivazione comandi vocali di emergenza",
+      "Condivisione automatica della posizione",
+      "Messaggi preimpostati di sicurezza"
+    ],
+    price: "10 EUR/mese",
+    icon: MessageCircle,
+    color: "secondary"
+  },
+  {
+    id: 3,
+    title: "SmokeEscape",
+    description: "Un oggetto tascabile che quando lanciato in aria crea una nuvola di fumo, dandoti il tempo di scappare.",
+    features: [
+      "Facile da attivare in situazioni di emergenza",
+      "Fumo denso ma non tossico",
+      "Design compatto e leggero",
+      "Pacchetto completo di 3 dispositivi"
+    ],
+    price: "29 EUR (set di 3)",
+    icon: Shield,
+    color: "pride-blue"
+  }
+];
+
+const EmailForm = ({ solution, onClose }: { solution: Solution, onClose: () => void }) => {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      toast({
+        title: "Grazie per il tuo interesse!",
+        description: "Ti contatteremo presto con maggiori informazioni.",
+      });
+      onClose();
+    }, 1000);
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="space-y-2">
+        <Label htmlFor="email">Email</Label>
+        <Input
+          id="email"
+          type="email"
+          placeholder="Il tuo indirizzo email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+      <Button
+        type="submit"
+        className={`w-full bg-${solution.color} hover:opacity-90`}
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? "Invio in corso..." : "Ricevi Informazioni"}
+      </Button>
+    </form>
+  );
+};
+
+const Solutions = () => {
+  const [selectedSolution, setSelectedSolution] = useState<Solution | null>(null);
+
+  return (
+    <section id="soluzioni" className="py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+            Le Nostre <span className="text-gradient">Soluzioni</span>
+          </h2>
+          <p className="max-w-2xl mx-auto text-muted-foreground">
+            Prodotti innovativi pensati per la sicurezza e la libertà della comunità LGBTQ+
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {solutions.map((solution) => (
+            <Card key={solution.id} className="overflow-hidden border-t-4 border-t-pride-purple transition-transform hover:scale-105">
+              <CardHeader>
+                <div className={`bg-${solution.color}/10 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4`}>
+                  <solution.icon className={`h-6 w-6 text-${solution.color}`} />
+                </div>
+                <CardTitle>{solution.title}</CardTitle>
+                <CardDescription>{solution.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2">
+                  {solution.features.map((feature, index) => (
+                    <li key={index} className="flex items-start">
+                      <svg className="h-5 w-5 text-primary mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+              <CardFooter className="flex flex-col items-stretch gap-4">
+                <div className="font-bold text-xl text-center">{solution.price}</div>
+                <Button 
+                  className={`w-full bg-${solution.color}/80 hover:bg-${solution.color}`}
+                  onClick={() => setSelectedSolution(solution)}
+                >
+                  Sono Interessato
+                </Button>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+        
+        <Dialog open={!!selectedSolution} onOpenChange={(open) => !open && setSelectedSolution(null)}>
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle>{selectedSolution?.title}</DialogTitle>
+              <DialogDescription>
+                Inserisci la tua email per ricevere maggiori informazioni su questo prodotto.
+              </DialogDescription>
+            </DialogHeader>
+            {selectedSolution && (
+              <EmailForm 
+                solution={selectedSolution} 
+                onClose={() => setSelectedSolution(null)} 
+              />
+            )}
+          </DialogContent>
+        </Dialog>
+      </div>
+    </section>
+  );
+};
+
+export default Solutions;
