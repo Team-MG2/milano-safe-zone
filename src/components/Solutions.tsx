@@ -147,7 +147,9 @@ const Solutions = () => {
               <CardFooter className="flex flex-col items-stretch gap-4">
                 <div className="font-bold text-xl text-center">{solution.price}</div>
                 <Button 
-                  className={`w-full ${solution.id === 3 ? "bg-pride-blue hover:bg-pride-blue/90" : `bg-${solution.color}/80 hover:bg-${solution.color}`}`}
+                  className={solution.id === 1 ? "w-full bg-primary hover:bg-primary/90" : 
+                           solution.id === 2 ? "w-full bg-secondary hover:bg-secondary/90" : 
+                           "w-full bg-pride-blue hover:bg-pride-blue/90"}
                   onClick={() => setSelectedSolution(solution)}
                 >
                   Mi interessa
