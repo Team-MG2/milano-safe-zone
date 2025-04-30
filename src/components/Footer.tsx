@@ -12,7 +12,7 @@ const Footer = () => {
           </div>
           
           <p className="text-center text-muted-foreground mb-8 max-w-md">
-            Creiamo soluzioni per una Milano dove tutti possono sentirsi liberi di esprimere se stessi in sicurezza.
+            Creiamo soluzioni per una Milano dove ogni persona possa sentirsi libera di esprimersi in sicurezza.
           </p>
           
           <div className="flex flex-wrap justify-center gap-6 mb-8">

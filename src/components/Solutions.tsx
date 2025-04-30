@@ -50,7 +50,7 @@ const solutions: Solution[] = [
   {
     id: 3,
     title: "SmokeEscape",
-    description: "Un oggetto tascabile che quando lanciato in aria crea una nuvola di fumo, dandoti il tempo di scappare.",
+    description: "Un oggetto tascabile che quando lanciato in aria crea una nuvola di fumo, dandoti il tempo di allontanarti.",
     features: [
       "Facile da attivare in situazioni di emergenza",
       "Fumo denso ma non tossico",

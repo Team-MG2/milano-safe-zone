@@ -11,7 +11,7 @@ const Hero = () => {
               <span className="text-gradient">Sicurezza</span> Per La Comunità <span className="text-gradient">LGBTQ+</span> di Milano
             </h1>
             <p className="text-lg mb-8 md:mb-10 text-muted-foreground">
-              Sentiti libero di essere te stesso, vestiti come vuoi, e cammina sicuro nelle strade di Milano con le nostre soluzioni innovative per la tua protezione personale.
+              Sentiti libero di esprimerti, vesti come preferisci, e cammina in sicurezza nelle strade di Milano con le nostre soluzioni innovative per la tua protezione personale.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
