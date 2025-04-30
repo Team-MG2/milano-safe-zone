@@ -6,6 +6,10 @@ import { MapPin, Shield } from "lucide-react";
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
+  const handleContactClick = (e: React.MouseEvent) => {
+    window.location.href = "mailto:milano.safe@gmail.com";
+  };
+  
   return (
     <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,7 +32,12 @@ const Navbar = () => {
                 <MapPin className="h-4 w-4 mr-1" />
                 <span className="text-xs font-medium">Milano, IT</span>
               </div>
-              <Button variant="default" size="sm" className="bg-gradient-pride hover:opacity-90">
+              <Button 
+                variant="default" 
+                size="sm" 
+                className="bg-gradient-pride hover:opacity-90"
+                onClick={handleContactClick}
+              >
                 Contattaci
               </Button>
             </div>
@@ -62,7 +71,12 @@ const Navbar = () => {
             <a href="#home" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-primary/10 hover:text-primary">Home</a>
             <a href="#problema" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-primary/10 hover:text-primary">Il Problema</a>
             <a href="#soluzioni" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-primary/10 hover:text-primary">Le Soluzioni</a>
-            <Button variant="default" size="sm" className="mt-2 w-full bg-gradient-pride hover:opacity-90">
+            <Button 
+              variant="default" 
+              size="sm" 
+              className="mt-2 w-full bg-gradient-pride hover:opacity-90"
+              onClick={handleContactClick}
+            >
               Contattaci
             </Button>
           </div>
