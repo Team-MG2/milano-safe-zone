@@ -85,7 +85,7 @@ const EmailForm = ({ solution, onClose }: { solution: Solution, onClose: () => v
     }, 1000);
   */
     try {
-      const { error } = await supabase.from("emails").insert([
+      const { error } = await supabase.from("Emails").insert([
         { email: email, solution_id: solution.id },
       ]);
       if (error) throw error;
