@@ -50,7 +50,7 @@ const Problem = () => {
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-2/3 md:pr-8 mb-6 md:mb-0">
               <h3 className="text-xl md:text-2xl font-semibold mb-4">
-                Dovresti sentirti libero di esprimerti
+                Dovresti sentirti a tuo agio nell'esprimerti
               </h3>
               <p className="text-muted-foreground">
                 Vogliamo creare una Milano dove chiunque possa vestirsi, esprimersi e camminare per le strade senza paura. Nessuno dovrebbe sentirsi in pericolo per il solo fatto di essere se stesso.
