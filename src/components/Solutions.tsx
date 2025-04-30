@@ -7,7 +7,9 @@ import { Label } from "@/components/ui/label";
 import { BellRing, MessageCircle, Shield } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
+import { createClient } from "@supabase/supabase-js";
 
+const supabase = createClient("https://btfnxjwmzeqtcrdwxvwz.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ0Zm54andtemVxdGNyZHd4dnd6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYwMDI4NjcsImV4cCI6MjA2MTU3ODg2N30.I8_eYigIPjmBtctyuqd8b89wZej1sZwn79FeJANQWNs");
 interface Solution {
   id: number;
   title: string;
@@ -68,10 +70,10 @@ const EmailForm = ({ solution, onClose }: { solution: Solution, onClose: () => v
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+  /*  ORIGINAL
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
@@ -81,6 +83,27 @@ const EmailForm = ({ solution, onClose }: { solution: Solution, onClose: () => v
       });
       onClose();
     }, 1000);
+  */
+    try {
+      const { error } = await supabase.from("emails").insert([
+        { email: email, solution_id: solution.id },
+      ]);
+      if (error) throw error;
+      toast({
+        title: "Grazie per il tuo interesse!",
+        description: "Ti contatteremo presto con maggiori informazioni.",
+      });
+      onClose();
+    } catch (error) {
+      console.error("Supabase Error:", error);
+      toast({
+        title: "Errore",
+        description: "Non siamo riusciti a salvare la tua email. Riprova più tardi.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
