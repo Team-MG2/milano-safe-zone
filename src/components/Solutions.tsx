@@ -40,7 +40,7 @@ const solutions: Solution[] = [
     title: "Safe mApp",
     description: "Un'app che ti fa stare al sicurə quando sei in giro.",
     features: [
-      "Heat Map della sicurezza urbana e dei trasporti in tempo reale",
+      "Heat Mappa della sicurezza urbana e dei trasporti in tempo reale",
       "Una comunità che condivide i rischi riscontrati quotidianamente",
       "Possibilità di richiedere soccorso a vigilanti professionisti",
       "Condivisione della Posizione con contatti selezionati"
