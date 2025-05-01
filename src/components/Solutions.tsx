@@ -37,15 +37,15 @@ const solutions: Solution[] = [
   },
   {
     id: 2,
-    title: "City App",
-    description: "Un'app che ti fa sentire sicurə quando sei in giro.",
+    title: "Safe mApp",
+    description: "Un'app che ti fa stare al sicurə quando sei in giro.",
     features: [
-      "Condivisione automatica della posizione",
-      "Registrazione audio e video di testimonianza",
-      "Allerta immediata forze dell'ordine in caso di necessità",
-      "... e molto altro"
+      "Heat Map della sicurezza urbana e dei trasporti in tempo reale",
+      "Una comunità che condivide i rischi riscontrati quotidianamente",
+      "Possibilità di richiedere soccorso a vigilanti professionisti",
+      "Condivisione della Posizione con contatti selezionati"
     ],
-    price: "10 EUR/mese",
+    price: "9 EUR/mese",
     icon: MessageCircle,
     color: "secondary"
   }
