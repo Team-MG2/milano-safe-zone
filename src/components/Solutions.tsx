@@ -37,13 +37,13 @@ const solutions: Solution[] = [
   },
   {
     id: 2,
-    title: "AmicoAI App",
-    description: "Un'app AI con cui parli come fossi al telefono che può chiamare soccorsi e inviare la tua posizione.",
+    title: "City App",
+    description: "Un'app che ti fa sentire sicurə quando sei in giro.",
     features: [
-      "Simulazione di chiamata realistica",
-      "Attivazione comandi vocali di emergenza",
       "Condivisione automatica della posizione",
-      "Messaggi preimpostati di sicurezza"
+      "Registrazione audio e video di testimonianza",
+      "Allerta immediata forze dell'ordine in caso di necessità",
+      "... e molto altro"
     ],
     price: "10 EUR/mese",
     icon: MessageCircle,

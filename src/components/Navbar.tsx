@@ -28,10 +28,6 @@ const Navbar = () => {
               <a href="#home" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary/10 hover:text-primary">Home</a>
               <a href="#problema" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary/10 hover:text-primary">Il Problema</a>
               <a href="#soluzioni" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary/10 hover:text-primary">Le Soluzioni</a>
-              <div className="flex items-center text-secondary ml-2">
-                <MapPin className="h-4 w-4 mr-1" />
-                <span className="text-xs font-medium">Milano, IT</span>
-              </div>
               <Button 
                 variant="default" 
                 size="sm" 
