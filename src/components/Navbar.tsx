@@ -2,11 +2,26 @@
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { MapPin, Shield } from "lucide-react";
+import * as amplitude from '@amplitude/analytics-browser';
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   const handleContactClick = (e: React.MouseEvent) => {
+    try {
+      // Check if Amplitude is initialized and available before tracking
+      // If you used the `@amplitude/analytics-browser` import:
+      amplitude.track('Contattaci', {
+        location: mobileMenuOpen ? 'mobile_menu' : 'desktop_navbar'
+      });
+
+    } catch (error) {
+      console.error("Error tracking Amplitude event:", error);
+      // Optionally handle the error, though typically tracking errors are non-critical
+    }
+    // --- End Amplitude Tracking Snippet ---
+
+    // Redirect to the email address
     window.location.href = "mailto:milano.safe@gmail.com";
   };
   
