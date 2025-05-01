@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { BellRing, MessageCircle, Shield } from "lucide-react";
+import { BellRing, MessageCircle } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import { createClient } from "@supabase/supabase-js";
@@ -48,20 +48,6 @@ const solutions: Solution[] = [
     price: "10 EUR/mese",
     icon: MessageCircle,
     color: "secondary"
-  },
-  {
-    id: 3,
-    title: "SmokeEscape",
-    description: "Un oggetto tascabile che quando lanciato in aria crea una nuvola di fumo, dandoti il tempo di allontanarti.",
-    features: [
-      "Facile da attivare in situazioni di emergenza",
-      "Fumo denso ma non tossico",
-      "Design compatto e leggero",
-      "Pacchetto completo di 3 dispositivi"
-    ],
-    price: "29 EUR (set di 3)",
-    icon: Shield,
-    color: "pride-blue"
   }
 ];
 
@@ -73,17 +59,7 @@ const EmailForm = ({ solution, onClose }: { solution: Solution, onClose: () => v
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-  /*  ORIGINAL
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast({
-        title: "Grazie per il tuo interesse!",
-        description: "Ti contatteremo presto con maggiori informazioni.",
-      });
-      onClose();
-    }, 1000);
-  */
+  
     try {
       const { error } = await supabase.from("Emails").insert([
         { email: email, solution_id: solution.id },
@@ -145,7 +121,7 @@ const Solutions = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {solutions.map((solution) => (
             <Card key={solution.id} className="overflow-hidden border-t-4 border-t-pride-purple transition-transform hover:scale-105">
               <CardHeader>
@@ -170,9 +146,7 @@ const Solutions = () => {
               <CardFooter className="flex flex-col items-stretch gap-4">
                 <div className="font-bold text-xl text-center">{solution.price}</div>
                 <Button 
-                  className={solution.id === 1 ? "w-full bg-primary hover:bg-primary/90" : 
-                           solution.id === 2 ? "w-full bg-secondary hover:bg-secondary/90" : 
-                           "w-full bg-pride-blue hover:bg-pride-blue/90"}
+                  className={solution.id === 1 ? "w-full bg-primary hover:bg-primary/90" : "w-full bg-secondary hover:bg-secondary/90"}
                   onClick={() => setSelectedSolution(solution)}
                 >
                   Mi interessa
