@@ -117,7 +117,7 @@ const Solutions = () => {
             Le Nostre <span className="text-gradient">Soluzioni</span>
           </h2>
           <p className="max-w-2xl mx-auto text-muted-foreground">
-            Prodotti innovativi pensati per la sicurezza e la libertà della comunità LGBTQ+
+            Prodotti innovativi pensati per la sicurezza e la libertà di tutti
           </p>
         </div>
         

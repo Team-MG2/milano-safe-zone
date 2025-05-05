@@ -8,7 +8,7 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 lg:pr-8 mb-10 lg:mb-0">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 leading-tight">
-              <span className="text-gradient">Sicurezza</span> Per La Comunità <span className="text-gradient">LGBTQ+</span> di Milano
+              <span className="text-gradient">Sicurezza</span> Personale <span className="text-gradient">Per Tutti</span> a Milano
             </h1>
             <p className="text-lg mb-8 md:mb-10 text-muted-foreground">
               Sentiti a tuo agio nell'esprimerti, vesti come preferisci, e cammina in sicurezza nelle strade di Milano con le nostre soluzioni innovative per la tua protezione personale.
@@ -47,7 +47,7 @@ const Hero = () => {
                   <div className="text-center p-6 md:p-10">
                     <h2 className="text-xl md:text-2xl font-bold mb-4 text-gradient">La Sicurezza che Meriti</h2>
                     <p className="text-sm md:text-base mb-6">
-                      Tre soluzioni innovative per proteggere te stesso mentre ti esprimi liberamente
+                      Soluzioni innovative per proteggere te stesso mentre ti esprimi liberamente
                     </p>
                     <div className="inline-flex items-center justify-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium">
                       #MilanoSafeZone

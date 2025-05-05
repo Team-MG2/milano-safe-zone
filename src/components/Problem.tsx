@@ -10,7 +10,7 @@ const Problem = () => {
             Il <span className="text-gradient">Problema</span>
           </h2>
           <p className="max-w-2xl mx-auto text-muted-foreground">
-            Perché abbiamo bisogno di soluzioni per la sicurezza personale nella comunità LGBTQ+
+            Perché abbiamo bisogno di soluzioni per la sicurezza personale nelle nostre città
           </p>
         </div>
         
@@ -21,7 +21,7 @@ const Problem = () => {
             </div>
             <h3 className="text-lg font-semibold mb-3">Intimidazioni Verbali</h3>
             <p className="text-muted-foreground">
-              L'84% delle persone LGBTQ+ a Milano ha subito insulti o molestie verbali mentre camminava per strada, soprattutto di sera.
+              L'84% delle persone a Milano ha subito insulti o molestie verbali mentre camminava per strada, soprattutto di sera.
             </p>
           </div>
           
@@ -31,7 +31,7 @@ const Problem = () => {
             </div>
             <h3 className="text-lg font-semibold mb-3">Paura di Esprimersi</h3>
             <p className="text-muted-foreground">
-              Il 72% delle persone della comunità LGBTQ+ limita il proprio modo di vestirsi o esprimersi per paura di attacchi o discriminazioni.
+              Il 72% delle persone limita il proprio modo di vestirsi o esprimersi per paura di attacchi o discriminazioni.
             </p>
           </div>
           
@@ -41,7 +41,7 @@ const Problem = () => {
             </div>
             <h3 className="text-lg font-semibold mb-3">Aggressioni Fisiche</h3>
             <p className="text-muted-foreground">
-              Il 23% delle persone LGBTQ+ a Milano ha subito un'aggressione fisica o è stata minacciata nell'ultimo anno.
+              Il 23% delle persone a Milano ha subito un'aggressione fisica o è stata minacciata nell'ultimo anno.
             </p>
           </div>
         </div>
