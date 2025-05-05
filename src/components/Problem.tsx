@@ -10,7 +10,7 @@ const Problem = () => {
             Il <span className="text-gradient">Problema</span>
           </h2>
           <p className="max-w-2xl mx-auto text-muted-foreground">
-            Perché abbiamo bisogno di soluzioni efficaci per la sicurezza personale
+            Perché abbiamo bisogno di soluzioni efficaci per la sicurezza personale nelle nostre città
           </p>
         </div>
         
