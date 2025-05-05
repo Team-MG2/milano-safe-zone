@@ -110,10 +110,10 @@ const EmailForm = ({ solution, onClose }: { solution: Solution, onClose: () => v
           type="Numero di telefono"
           placeholder="Il tuo numero di telefono"
           required
-          value={numeroDiTelefono}
-          onChange={(e) => {const value = e.target.value.replace(/\D/g, "");
-            setPhoneNumber(value ? Number(value) : 0);
-            console.log(numeroDiTelefono)
+          value={numeroDiTelefono ? `+39 ${numeroDiTelefono}` : "+39"}
+          onChange={(e) => {const value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+            const phoneNumber = value.startsWith("39") ? value.slice(2) : value; // Remove +39 if already present
+            setPhoneNumber(phoneNumber ? Number(phoneNumber) : 0); // Update state with the number
           }
           }
         />
