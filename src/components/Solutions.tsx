@@ -53,6 +53,9 @@ const solutions: Solution[] = [
 
 const EmailForm = ({ solution, onClose }: { solution: Solution, onClose: () => void }) => {
   const [email, setEmail] = useState("");
+  const [nome, setName] = useState("");
+  const [cognome, setSurname] = useState("");
+  const [numeroDiTelefono, setPhoneNumber] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
@@ -62,7 +65,7 @@ const EmailForm = ({ solution, onClose }: { solution: Solution, onClose: () => v
   
     try {
       const { error } = await supabase.from("Emails").insert([
-        { email: email, solution_id: solution.id },
+        { email: email, name: nome, surname: cognome, phoneNumber: numeroDiTelefono, solution_id: solution.id },
       ]);
       if (error) throw error;
       toast({
@@ -85,6 +88,35 @@ const EmailForm = ({ solution, onClose }: { solution: Solution, onClose: () => v
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="space-y-2">
+      <Label htmlFor="Nome">Nome</Label>
+        <Input
+          id="Nome"
+          type="Nome"
+          placeholder="Il tuo nome"
+          required
+          value={nome}
+          onChange={(e) => setName(e.target.value)}
+        /><Label htmlFor="Cognome">Cognome</Label>
+        <Input
+          id="Cognome"
+          type="Cognome"
+          placeholder="Il tuo cognome"
+          required
+          value={cognome}
+          onChange={(e) => setSurname(e.target.value)}
+        /><Label htmlFor="Numero di telefono">Numero di telefono</Label>
+        <Input
+          id="Numero di telefono"
+          type="Numero di telefono"
+          placeholder="Il tuo numero di telefono"
+          required
+          value={numeroDiTelefono}
+          onChange={(e) => {const value = e.target.value.replace(/\D/g, "");
+            setPhoneNumber(value ? Number(value) : 0);
+            console.log(numeroDiTelefono)
+          }
+          }
+        />
         <Label htmlFor="email">Email</Label>
         <Input
           id="email"
