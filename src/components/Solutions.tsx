@@ -38,12 +38,12 @@ const solutions: Solution[] = [
   {
     id: 2,
     title: "Safe mApp",
-    description: "Un'applicazione che mostra in tempo reale i pericoli urbani e permette di richiedere soccorso con un click.",
+    description: "Un'applicazione che ti fa stare al sicurə quando sei in giro.",
     features: [
-      "Heat Mappa della sicurezza urbana e dei trasporti in tempo reale",
-      "Una comunità che condivide i rischi riscontrati quotidianamente",
+      "Condivisione della Posizione con contatti selezionati",
+      "Registrazione audio e video di testimonianza",
       "Possibilità di richiedere soccorso a vigilanti professionisti",
-      "Condivisione della Posizione con contatti selezionati"
+      "... e molto altro"
     ],
     price: "9 EUR/mese",
     icon: MessageCircle,
